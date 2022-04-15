@@ -5,7 +5,7 @@ FROM golang:1.13 AS UV3DP_BUILDER
     go build -o /app/uv3dp ./cmd/uv3dp
 
 
-FROM alpine:latest
+FROM bash:5
   COPY --from=UV3DP_BUILDER /app/uv3dp /usr/bin/
 
   ADD src/convert.sh /convert.sh

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd ${WATCH_DIRECTORY:=/home}
 
@@ -13,7 +13,7 @@ convert() {
 export -f convert
 
 while [ true ]; do
-  sleep 30
-
   find . -type f -mmin +1 -iname '*.sl1' -exec bash -c 'convert {}' \;
+
+  sleep 30
 done
